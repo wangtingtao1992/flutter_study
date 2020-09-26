@@ -1,0 +1,49 @@
+buildscript {
+    repositories {
+//        手机热点网路gradle配置
+//        google()
+//        jcenter()
+
+//       1.连接国内代理网络gradle配置
+        maven { url 'https://maven.aliyun.com/repository/google' }
+        maven { url 'https://maven.aliyun.com/repository/jcenter' }
+        maven { url 'http://maven.aliyun.com/nexus/content/groups/public'}
+    }
+
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.2.0'
+    }
+}
+
+allprojects {
+    repositories {
+//        手机热点网路gradle配置
+//        google()
+//        jcenter()
+
+//        2.连接国内代理网络gradle配置
+        maven { url 'https://maven.aliyun.com/repository/google' }
+        maven { url 'https://maven.aliyun.com/repository/jcenter' }
+        maven { url 'http://maven.aliyun.com/nexus/content/groups/public'}
+    }
+}
+//3.连接国内代理网络gradle配置
+// 修改fluttersdk里的flutter.gradle（目录：D:\flutter\sdk\flutter_windows_1.17.5-stable\flutter\packages\flutter_tools\gradle）
+//同一gradle版本所以修改了gradle版本3.5.0---->3.2.0
+//修改的地方
+//google()
+//jcenter()
+//maven { url 'https://maven.aliyun.com/repository/google' }
+//maven { url 'https://maven.aliyun.com/repository/jcenter' }
+//maven { url 'http://maven.aliyun.com/nexus/content/groups/public' }
+rootProject.buildDir = '../build'
+subprojects {
+    project.buildDir = "${rootProject.buildDir}/${project.name}"
+}
+subprojects {
+    project.evaluationDependsOn(':app')
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
