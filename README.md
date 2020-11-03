@@ -15,10 +15,7 @@ For help getting started with Flutter, view our
 [online documentation](https://flutter.dev/docs), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
 
-創建flutter工程
-Running Gradle task 'assembleDebug'... 卡顿？
-解決1：连接手机热点重新执行
-解决2：修改gradle仓库地址https://blog.csdn.net/android157/article/details/103657486
+
 
 
 

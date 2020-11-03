@@ -1,0 +1,86 @@
+项目应用脚手架
+1.安装node.js和npm环境---https://www.cnblogs.com/hcfinal/p/9480481.html
+···
+ 安装结果：
+    C:\Users\wangtingtao>node -v
+    v12.18.3
+
+    C:\Users\wangtingtao>npm -v
+    6.14.6
+ 配置node、和npm
+    执行npm install cluster
+    ···
+        npm WARN saveError ENOENT: no such file or directory, open 'C:\Users\wangtingtao\package.json'
+        npm notice created a lockfile as package-lock.json. You should commit this file.
+        npm WARN enoent ENOENT: no such file or directory, open 'C:\Users\wangtingtao\package.json'
+        npm WARN wangtingtao No description
+        npm WARN wangtingtao No repository field.
+        npm WARN wangtingtao No README data
+        npm WARN wangtingtao No license field.
+    ···
+    修改node.js文件目录配置
+        1.D盘新增\nodejs\node_global \nodejs\node_cache 文件夹
+        2.执行如下命令
+        ···
+            C:\Users\wangtingtao>npm config set prefix "D:\nodejs\node_global"
+
+            C:\Users\wangtingtao>npm config set cache "D:\nodejs\node_cache"
+        ···
+        3.执行命令npm install cluster -g
+        ···
+            C:\Users\wangtingtao>npm install cluster -g
+            + cluster@0.7.7
+            added 14 packages from 2 contributors in 51.084s
+        ···
+     修改环境信息变量
+        1.新增NODE_PATH = D:\nodejs\node_global\node_modules
+        2.修改之前的npm配置path=C:\Users\wangtingtao\AppData\Roaming\npm
+        修改为：path= D:\nodejs\node_global
+        3.重启命令行执行 node、require('cluster')
+        ···
+            > require('cluster')
+            EventEmitter {
+              _events: [Object: null prototype] {},
+              _eventsCount: 0,
+              _maxListeners: undefined,
+              isWorker: false,
+              isMaster: true,
+              Worker: [Function: Worker],
+              workers: {},
+              settings: {},
+              SCHED_NONE: 1,
+              SCHED_RR: 2,
+              schedulingPolicy: 1,
+              setupMaster: [Function],
+              fork: [Function],
+              disconnect: [Function],
+              [Symbol(kCapture)]: false
+            }
+            >
+        ···
+        4.将npm的模块下载仓库从默认的国外站点改为国内的站点
+        ···
+            C:\Users\wangtingtao>npm --registry https://registry.npm.taobao.org install cluster
+            npm WARN saveError ENOENT: no such file or directory, open 'C:\Users\wangtingtao\package.json'
+            npm WARN enoent ENOENT: no such file or directory, open 'C:\Users\wangtingtao\package.json'
+            npm WARN wangtingtao No description
+            npm WARN wangtingtao No repository field.
+            npm WARN wangtingtao No README data
+            npm WARN wangtingtao No license field.
+
+            + cluster@0.7.7
+            updated 1 package in 0.617s
+        ···
+        如果想一直使用这个源的地址，那么可以使用下面这个命令来配置。
+        npm install -g cnpm --registry=https://registry.npm.taobao.org
+        ···
+            C:\Users\wangtingtao>npm install -g cnpm --registry=https://registry.npm.taobao.org
+            npm WARN deprecated request@2.88.2: request has been deprecated, see https://github.com/request/request/issues/3142
+            npm WARN deprecated har-validator@5.1.5: this
+            D:\nodejs\node_global\cnpm -> D:\nodejs\node_global\node_modules\cnpm\bin\cnpm
+            + cnpm@6.1.1
+            added 688 packages from 971 contributors in 47.693s
+        ···
+
+···
+
