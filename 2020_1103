@@ -1,4 +1,4 @@
-项目应用脚手架
+windos flutter项目应用脚手架---node.js原理(github开源)
 1.安装node.js和npm环境---https://www.cnblogs.com/hcfinal/p/9480481.html
 ···
  安装结果：
@@ -82,5 +82,27 @@
             added 688 packages from 971 contributors in 47.693s
         ···
 
+···
+2.运行命令npm install -g flutter-pro-cli
+
+flutter-pro-cli init:创建基本工程文件夹、check:执行.sh文件美化代码、
+                run:运行项目(需要有模拟器或者真机调试状态)、sync-test:生成基础测试用例
+运行结果如下：ok
+···
+   D:\nodejs\node_global\flutter-pro-cli -> D:\nodejs\node_global\node_modules\flutter-pro-cli\flutter-pro-cli.js
+   + flutter-pro-cli@1.0.36
+   added 4 packages from 4 contributors in 7.223s
+···
+3.执行flutter-pro-cli init生成目录如下
+···
+    D:\flutter\project\flutter_study>flutter-pro-cli init
+    Start create project init path
+    create test api success
+    create test model success
+    create test pages success
+    create test util success
+    create test util/struct success
+    create test widgets success
+    init project path success
 ···
 
